@@ -1,0 +1,24 @@
+	<html>
+	<head>
+	    <title>T E S T # 1</title>
+	</head>
+	<body>
+	   {% if error %}
+        <p style="color: red;">Please specify a file to upload.</p>
+   	 {% endif %}
+
+	<form action="/test1/"
+	enctype="multipart/form-data" method="post">
+
+
+	<p>
+	 File to upload:<br>
+		<input type="file" name="file" id="id_file" size="40">
+	
+	
+	<input type="submit" value="upload">
+	</p>
+	</form>
+
+	</body>
+	</html>

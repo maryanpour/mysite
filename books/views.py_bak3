@@ -1,0 +1,63 @@
+# Create your views here.
+from django.shortcuts import render_to_response, HttpResponse
+from mysite.books.models import Book
+from django import forms
+from django.http import HttpResponseRedirect
+import subprocess
+
+import cgi,os
+import cgitb; cgitb.enable()
+
+
+
+
+def test1(request):
+	if 2>0:
+	 	s1=subprocess.call(["pwd > cr2"," "],shell=True)
+		fid=open('cr2','r')
+		s2=fid.read()
+		fid.close()
+		File_Name = 'nothing to upload'
+		fileitem  = 'no item found'
+		VAR2 = s2
+		return render_to_response('test1_results.html',{'var0': File_Name, 'var1': fileitem, 'var2': VAR2})
+	else:
+		return render_to_response('test1_form.html', {'error': True})
+
+
+
+
+def test1_form(request):
+	return render_to_response('test1_form.html')
+
+def test1_a(request):
+	if 'q' in request.GET and request.GET['q']:
+        	q = request.GET['q']
+        	return render_to_response('test1_results.html',{'query': q})
+    	else:
+        	return render_to_response('test1_form.html', {'error': True})
+
+
+
+
+
+
+
+
+
+
+
+
+def search_form(request):
+    return render_to_response('search_form.html')
+	
+
+def search(request):
+	if 'q' in request.GET and request.GET['q']:
+        	q = request.GET['q']
+       		books = Book.objects.filter(title__icontains=q)
+        	return render_to_response('search_results.html',{'books': books, 'query': q})
+    	else:
+        	return render_to_response('search_form.html', {'error': True})
+
+
