@@ -17,8 +17,6 @@ fi
 
 rm _out _err
 
-
-
 # applications
 DefaultEditor=emacs
 SPHINX=sphinx-build
