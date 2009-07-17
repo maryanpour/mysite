@@ -5,15 +5,17 @@
 # if yes, then feed its path to MyHOME
 which genetrack.sh 1>_out 2>_err 
 MyHOME=`cat _out`
-rm _out _err
 
 if [ -s _err ]
     then echo ' Did not find genetrack.sh in PATH: exit '
+    rm _out _err
+
     exit
 else
     echo 'genetrack.sh home = '$MyHOME
 fi
 
+rm _out _err
 
 
 
